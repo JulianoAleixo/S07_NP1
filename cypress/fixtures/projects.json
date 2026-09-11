@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Juliano Aleixo's Legacy Portfolio",
+        "status": "Deployed",
+        "projectUrl": "https://dev-juliano-aleixo.vercel.app",
+        "repositoryUrl": "https://github.com/JulianoAleixo/dev-juliano-aleixo"
+    },
+    {
+        "title": "Dra Maria Luiza Rennó's Website",
+        "status": "Deployed",
+        "projectUrl": "https://www.dramarialuizarenno.com.br",
+        "repositoryUrl": null
+    },
+    {
+        "title": "Divide Aí",
+        "status": "On Development",
+        "projectUrl": null,
+        "repositoryUrl": "https://github.com/C14-INATEL/divide-ai-front"
+    },
+    {
+        "title": "DaisyUI Theme Changer",
+        "status": "Deployed",
+        "projectUrl": "https://theme-change-daisy-ui.vercel.app",
+        "repositoryUrl": "https://github.com/JulianoAleixo/Theme-Change-Daisy-UI"
+    }
+]

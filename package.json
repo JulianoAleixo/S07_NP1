@@ -1,5 +1,19 @@
 {
-  "devDependencies": {
-    "cypress": "^15.21.1"
-  }
+    "scripts": {
+        "cy:open": "cypress open",
+        "cy:run": "cypress run"
+    },
+    "devDependencies": {
+        "@badeball/cypress-cucumber-preprocessor": "^28.0.0",
+        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+        "@types/jest": "^30.0.0",
+        "cypress": "^15.21.1",
+        "esbuild": "^0.23.1",
+        "typescript": "^5.6.3"
+    },
+    "cypress-cucumber-preprocessor": {
+        "stepDefinitions": [
+            "cypress/e2e/[filepath].steps.ts"
+        ]
+    }
 }

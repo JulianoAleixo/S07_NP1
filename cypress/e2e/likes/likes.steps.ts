@@ -50,3 +50,12 @@ Then("I should see the like button count decreased by 1", () => {
   MainPage.reloadUntilLikeCountIs(initialCount);
   MainPage.getLikeCount().should("eq", initialCount);
 });
+
+After(() => {
+  MainPage.getLikeCount().then((currentCount) => {
+    if (currentCount !== initialCount) {
+      MainPage.clickLikeButton();
+      MainPage.reloadUntilLikeCountIs(initialCount);
+    }
+  });
+});

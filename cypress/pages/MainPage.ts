@@ -65,7 +65,7 @@ class MainPage {
 
   clickLikeButton(): void {
     this.getLikeButton().click();
-    cy.wait(500);
+    cy.wait(800);
   }
 
   reloadUntilLikeCountIs(expected: number, attemptsLeft = 5): void {

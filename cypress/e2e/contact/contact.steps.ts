@@ -72,4 +72,5 @@ Then("the {word} field should be marked as invalid", (field: string) => {
     message: "textarea[name=message]",
   };
   MainPage.getInvalidField(selectorMap[field]).should("exist");
+  cy.get("body").should("not.contain", "Message sent successfully!");
 });

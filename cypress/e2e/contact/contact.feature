@@ -19,17 +19,29 @@ Feature: Contact section
     Then the email field should be marked as invalid
 
   Scenario: Rejecting submission with empty name
-    When I submit the contact form leaving the name empty
+    When I submit the contact form leaving the "name" empty
     Then the name field should be marked as invalid
 
   Scenario: Rejecting submission without email
-    When I submit the contact form leaving the email empty
+    When I submit the contact form leaving the "email" empty
     Then the email field should be marked as invalid
 
-  Scenario: Rejecting submission with malformed email
-    When I submit the contact form with a malformed email
+  Scenario: Rejecting submission with email missing "@"
+    When I submit the contact form with a malformed email "no @"
     Then the email field should be marked as invalid
 
+  Scenario: Rejecting submission with email missing domain
+    When I submit the contact form with a malformed email "no domain"
+    Then the email field should be marked as invalid
+
+  Scenario: Rejecting submission with email missing TLD
+    When I submit the contact form with a malformed email "no TLD"
+    Then the email field should be marked as invalid
+
+  Scenario: Rejecting submission with email containing space
+    When I submit the contact form with a malformed email "with space"
+    Then the email field should be marked as invalid
+    
   Scenario: Rejecting submission with empty message
-    When I submit the contact form leaving the message empty
+    When I submit the contact form leaving the "message" empty
     Then the message field should be marked as invalid

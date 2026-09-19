@@ -17,3 +17,19 @@ Feature: Contact section
   Scenario: Validating required fields on empty submission
     When I submit the contact form without filling it
     Then the email field should be marked as invalid
+
+  Scenario: Rejecting submission with empty name
+    When I submit the contact form leaving the name empty
+    Then the name field should be marked as invalid
+
+  Scenario: Rejecting submission without email
+    When I submit the contact form leaving the email empty
+    Then the email field should be marked as invalid
+
+  Scenario: Rejecting submission with malformed email
+    When I submit the contact form with a malformed email
+    Then the email field should be marked as invalid
+
+  Scenario: Rejecting submission with empty message
+    When I submit the contact form leaving the message empty
+    Then the message field should be marked as invalid

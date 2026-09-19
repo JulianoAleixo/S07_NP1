@@ -19,11 +19,11 @@ Feature: Contact section
     Then the email field should be marked as invalid
 
   Scenario: Rejecting submission with empty name
-    When I submit the contact form leaving the "name" empty
+    When I submit the contact form leaving the "name" field empty
     Then the name field should be marked as invalid
 
   Scenario: Rejecting submission without email
-    When I submit the contact form leaving the "email" empty
+    When I submit the contact form leaving the "email" field empty
     Then the email field should be marked as invalid
 
   Scenario: Rejecting submission with email missing "@"
@@ -41,7 +41,7 @@ Feature: Contact section
   Scenario: Rejecting submission with email containing space
     When I submit the contact form with a malformed email "with space"
     Then the email field should be marked as invalid
-    
+
   Scenario: Rejecting submission with empty message
-    When I submit the contact form leaving the "message" empty
+    When I submit the contact form leaving the "message" field empty
     Then the message field should be marked as invalid

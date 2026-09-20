@@ -55,3 +55,18 @@ Feature: Contact section
   Scenario: Rejecting submission with empty message
     When I submit the contact form leaving the "message" field empty
     Then the message field should be marked as invalid
+
+  @TC-025
+  Scenario: Not showing success message when form is submitted empty
+    When I submit the contact form without filling it
+    Then I should not see the success message
+
+  @TC-026
+  Scenario: Rejecting submission with whitespace-only name
+    When I submit the contact form with whitespace-only in the "name" field
+    Then the name field should be marked as invalid
+
+  @TC-027
+  Scenario: Rejecting submission with whitespace-only message
+    When I submit the contact form with whitespace-only in the "message" field
+    Then the message field should be marked as invalid

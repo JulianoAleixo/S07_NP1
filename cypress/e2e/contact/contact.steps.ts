@@ -87,3 +87,30 @@ Then("the {word} field should be marked as invalid", (field: string) => {
   MainPage.getInvalidField(selectorMap[field]).should("exist");
   cy.get("body").should("not.contain", "Message sent successfully!");
 });
+
+When(
+  "I submit the contact form with whitespace-only in the {string} field",
+  (field: string) => {
+    cy.fixture("contact").then((contact) => {
+      const whitespaceValue =
+        field === "name"
+          ? contact.whitespaceOnlyName
+          : contact.whitespaceOnlyMessage;
+
+      const data: { name?: string; email?: string; message?: string } = {
+        name: contact.validName,
+        email: contact.validEmail,
+        message: contact.validMessage,
+      };
+
+      data[field as keyof typeof data] = whitespaceValue;
+
+      MainPage.fillContactForm(data);
+      MainPage.clickButton("Submit");
+    });
+  },
+);
+
+Then("I should not see the success message", () => {
+  cy.get("body").should("not.contain", "Message sent successfully!");
+});

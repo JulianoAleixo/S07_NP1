@@ -40,6 +40,18 @@ class MainPage {
     return cy.get(`${selector}:invalid`);
   }
 
+  fillContactForm(data: { name?: string; email?: string; message?: string }) {
+    if (data.name !== undefined) {
+      cy.get("input[name=from_name]").clear().type(data.name);
+    }
+    if (data.email !== undefined) {
+      cy.get("input[name=from_email]").clear().type(data.email);
+    }
+    if (data.message !== undefined) {
+      cy.get("textarea[name=message]").clear().type(data.message);
+    }
+  }
+
   getLikeButton(): Cypress.Chainable {
     return cy.contains("button", /\d+\s*likes/i);
   }

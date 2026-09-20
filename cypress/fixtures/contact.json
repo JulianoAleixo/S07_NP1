@@ -1,0 +1,9 @@
+{
+  "validName": "João Silva",
+  "validEmail": "joao@example.com",
+  "validMessage": "Gostaria de saber mais sobre seus projetos.",
+  "malformedEmailNoAt": "joaoexample.com",
+  "malformedEmailNoDomain": "joao@",
+  "malformedEmailNoTld": "joao@example",
+  "malformedEmailWithSpace": "joao @example.com"
+}

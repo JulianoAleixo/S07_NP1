@@ -29,3 +29,10 @@ Then("I should see a link to see more projects on Github", () => {
         .should("have.attr", "href")
         .and("include", "github.com");
 });
+
+Then(
+    "the project {string} card should not display a repository link",
+    (title: string) => {
+        MainPage.getProjectCardRepositoryIcon(title).should("not.exist");
+    },
+);

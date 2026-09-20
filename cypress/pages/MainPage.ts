@@ -1,93 +1,97 @@
 class MainPage {
-  visit(): void {
-    cy.visitHome();
-  }
-
-  containsText(text: string | RegExp): Cypress.Chainable {
-    return cy.contains(text).scrollIntoView();
-  }
-
-  getHeading(text: string): Cypress.Chainable {
-    const pattern = new RegExp(text.trim().split(/\s+/).join("\\s*"));
-    return cy.contains("h1", pattern);
-  }
-
-  getLink(label: string): Cypress.Chainable {
-    return cy.contains("a", label);
-  }
-
-  clickLink(label: string): void {
-    this.getLink(label).click();
-  }
-
-  getButton(label: string): Cypress.Chainable {
-    return cy.contains("button", label);
-  }
-
-  clickButton(label: string): void {
-    this.getButton(label).click();
-  }
-
-  getSectionHeading(text: string): Cypress.Chainable {
-    return cy.contains("h1, h2, h3", text, { matchCase: false });
-  }
-
-  getProjectCardImage(title: string): Cypress.Chainable {
-    return cy.contains(title).scrollIntoView().parents("div").find("img");
-  }
-
-  getInvalidField(selector: string): Cypress.Chainable {
-    return cy.get(`${selector}:invalid`);
-  }
-
-  fillContactForm(data: { name?: string; email?: string; message?: string }) {
-    if (data.name !== undefined) {
-      cy.get("input[name=from_name]").clear().type(data.name);
+    visit(): void {
+        cy.visitHome();
     }
-    if (data.email !== undefined) {
-      cy.get("input[name=from_email]").clear().type(data.email);
+
+    containsText(text: string | RegExp): Cypress.Chainable {
+        return cy.contains(text).scrollIntoView();
     }
-    if (data.message !== undefined) {
-      cy.get("textarea[name=message]").clear().type(data.message);
+
+    getHeading(text: string): Cypress.Chainable {
+        const pattern = new RegExp(text.trim().split(/\s+/).join("\\s*"));
+        return cy.contains("h1", pattern);
     }
-  }
 
-  getLikeButton(): Cypress.Chainable {
-    return cy.contains("button", /\d+\s*likes/i);
-  }
+    getLink(label: string): Cypress.Chainable {
+        return cy.contains("a", label);
+    }
 
-  getLikeCount(): Cypress.Chainable<number> {
-    return this.getLikeButton()
-      .invoke("text")
-      .then((text) => {
-        const match = text.match(/\d+/);
-        return match ? parseInt(match[0], 10) : NaN;
-      });
-  }
+    clickLink(label: string): void {
+        this.getLink(label).click();
+    }
 
-  getStableLikeCount(attemptsLeft = 5): Cypress.Chainable<number> {
-    return this.getLikeCount().then((count) => {
-      if ((count === 0 || Number.isNaN(count)) && attemptsLeft > 0) {
-        cy.wait(300);
-        return this.getStableLikeCount(attemptsLeft - 1);
-      }
-      return cy.wrap(count);
-    });
-  }
+    getButton(label: string): Cypress.Chainable {
+        return cy.contains("button", label);
+    }
 
-  clickLikeButton(): void {
-    this.getLikeButton().click();
-    cy.wait(800);
-  }
+    clickButton(label: string): void {
+        this.getButton(label).click();
+    }
 
-  reloadUntilLikeCountIs(expected: number, attemptsLeft = 5): void {
-    cy.reload();
-    this.getStableLikeCount().then((count) => {
-      if (count !== expected && attemptsLeft > 0) {
-        this.reloadUntilLikeCountIs(expected, attemptsLeft - 1);
-      }
-    });
-  }
+    getSectionHeading(text: string): Cypress.Chainable {
+        return cy.contains("h1, h2, h3", text, { matchCase: false });
+    }
+
+    getProjectCardImage(title: string): Cypress.Chainable {
+        return cy.contains(title).scrollIntoView().parents("div").find("img");
+    }
+
+    getProjectCardRepositoryIcon(title: string): Cypress.Chainable {
+        return cy.contains(title).closest(".group").find("svg.lucide-code-xml");
+    }
+
+    getInvalidField(selector: string): Cypress.Chainable {
+        return cy.get(`${selector}:invalid`);
+    }
+
+    fillContactForm(data: { name?: string; email?: string; message?: string }) {
+        if (data.name !== undefined) {
+            cy.get("input[name=from_name]").clear().type(data.name);
+        }
+        if (data.email !== undefined) {
+            cy.get("input[name=from_email]").clear().type(data.email);
+        }
+        if (data.message !== undefined) {
+            cy.get("textarea[name=message]").clear().type(data.message);
+        }
+    }
+
+    getLikeButton(): Cypress.Chainable {
+        return cy.contains("button", /\d+\s*likes/i);
+    }
+
+    getLikeCount(): Cypress.Chainable<number> {
+        return this.getLikeButton()
+            .invoke("text")
+            .then((text) => {
+                const match = text.match(/\d+/);
+                return match ? parseInt(match[0], 10) : NaN;
+            });
+    }
+
+    getStableLikeCount(attemptsLeft = 5): Cypress.Chainable<number> {
+        return this.getLikeCount().then((count) => {
+            if ((count === 0 || Number.isNaN(count)) && attemptsLeft > 0) {
+                cy.wait(300);
+                return this.getStableLikeCount(attemptsLeft - 1);
+            }
+            return cy.wrap(count);
+        });
+    }
+
+    clickLikeButton(): void {
+        this.getLikeButton().click();
+        cy.wait(800);
+    }
+
+    reloadUntilLikeCountIs(expected: number, attemptsLeft = 5): void {
+        cy.reload();
+        this.getStableLikeCount().then((count) => {
+            if (count !== expected && attemptsLeft > 0) {
+                this.reloadUntilLikeCountIs(expected, attemptsLeft - 1);
+            }
+        });
+    }
 }
 
 export default new MainPage();

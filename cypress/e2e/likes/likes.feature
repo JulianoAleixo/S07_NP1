@@ -7,16 +7,16 @@ Feature: Like button
     Given I am on the portfolio home page 
     And the page has an non-negative integer number of likes
 
-  @TC-019
+  @TC-019 @valid
   Scenario: Viewing the initial like state
     Then I should see the like button with a non-negative integer number of likes
 
-  @TC-020 @skip
+  @TC-020 @valid @skip 
   Scenario: Liking the page 
     When I click on the like button
     Then I should see the like button count increased by 1
 
-  @TC-021 @skip
+  @TC-021 @invalid @skip 
   Scenario: Unliking the page 
     Given I have liked the page
     When I click on the like button

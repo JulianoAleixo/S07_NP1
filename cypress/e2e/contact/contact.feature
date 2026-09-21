@@ -46,7 +46,7 @@ Feature: Contact section
     When I submit the contact form with a malformed email "no TLD"
     Then the email field should be marked as invalid
 
-  @TC-013 @invalid @skip 
+  @TC-013 @invalid  
   Scenario: Rejecting submission with email containing space
     When I submit the contact form with a malformed email "with space"
     Then the email field should be marked as invalid

@@ -26,3 +26,16 @@ Feature: Navigation and Hero
   Scenario: Navigating to the Projects section
     When I click on the "Projects" menu link
     Then I should see the "Projects" section heading
+
+  @TC-022
+  Scenario: Not showing a non-existent menu item "Blog"
+    Then I should not see a menu link labeled "Blog"
+
+  @TC-023
+  Scenario: Not showing a non-existent menu item "Shop"
+    Then I should not see a menu link labeled "Shop"
+
+  @TC-024
+  Scenario: Social links should not point to wrong domains
+    Then the "LinkedIn" link should not point to "twitter.com"
+    And the "Github" link should not point to "linkedin.com"

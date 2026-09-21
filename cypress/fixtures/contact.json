@@ -5,5 +5,7 @@
   "malformedEmailNoAt": "joaoexample.com",
   "malformedEmailNoDomain": "joao@",
   "malformedEmailNoTld": "joao@example",
-  "malformedEmailWithSpace": "joao @example.com"
+  "malformedEmailWithSpace": "joao @example.com",
+  "whitespaceOnlyName": "   ",
+  "whitespaceOnlyMessage": "   "
 }

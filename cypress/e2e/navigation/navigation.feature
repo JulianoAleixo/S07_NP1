@@ -27,15 +27,15 @@ Feature: Navigation and Hero
     When I click on the "Projects" menu link
     Then I should see the "Projects" section heading
 
-  @TC-022 @valid
+  @TC-021 @valid
   Scenario: Not showing a non-existent menu item "Blog"
     Then I should not see a menu link labeled "Blog"
 
-  @TC-023 @valid
+  @TC-022 @valid
   Scenario: Not showing a non-existent menu item "Shop"
     Then I should not see a menu link labeled "Shop"
 
-  @TC-024 @valid
+  @TC-023 @valid
   Scenario: Social links should not point to wrong domains
     Then the "LinkedIn" link should not point to "twitter.com"
     And the "Github" link should not point to "linkedin.com"

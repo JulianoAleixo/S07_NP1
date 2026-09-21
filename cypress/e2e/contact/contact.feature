@@ -46,27 +46,23 @@ Feature: Contact section
     When I submit the contact form with a malformed email "no TLD"
     Then the email field should be marked as invalid
 
-  @TC-013 @invalid  
-  Scenario: Rejecting submission with email containing space
-    When I submit the contact form with a malformed email "with space"
-    Then the email field should be marked as invalid
 
-  @TC-014 @invalid
+  @TC-013 @invalid
   Scenario: Rejecting submission with empty message
     When I submit the contact form leaving the "message" field empty
     Then the message field should be marked as invalid
 
-  @TC-025 @invalid
+  @TC-024 @invalid
   Scenario: Not showing success message when form is submitted empty
     When I submit the contact form without filling it
     Then I should not see the success message
 
-  @TC-026 @invalid @skip 
+  @TC-025 @invalid @skip 
   Scenario: Rejecting submission with whitespace-only name
     When I submit the contact form with whitespace-only in the "name" field
     Then the name field should be marked as invalid
 
-  @TC-027 @invalid @skip
+  @TC-026 @invalid @skip
   Scenario: Rejecting submission with whitespace-only message
     When I submit the contact form with whitespace-only in the "message" field
     Then the message field should be marked as invalid

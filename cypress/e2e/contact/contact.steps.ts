@@ -51,19 +51,7 @@ When(
       "no @": "malformedEmailNoAt",
       "no domain": "malformedEmailNoDomain",
       "no TLD": "malformedEmailNoTld",
-      "with space": "malformedEmailWithSpace",
     };
-
-    if (
-      label === "with space" &&
-      (Cypress.browser.name === "chrome" || Cypress.browser.name === "electron")
-    ) {
-      cy.log(
-        "SKIP: Chrome filtra espaço em input[type=email] durante a digitação — " +
-          "este cenário não é executável via teclado real neste navegador.",
-      );
-      return;
-    }
 
     cy.fixture("contact").then((contact) => {
       const emailValue = contact[fixtureKeyMap[label]];

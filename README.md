@@ -168,43 +168,42 @@ Estes testes geram tráfego real contra o domínio de produção (`julianoaleixo
 
 ## Tabela Casos de Teste
 
-| ID     | Feature       | Cenário                                                             | Tipo     |
-| ------ | ------------- | ------------------------------------------------------------------- | -------- |
-| TC-001 | navigation    | Viewing the main heading                                            | Válido   |
-| TC-002 | navigation    | Viewing the menu links                                              | Válido   |
-| TC-003 | navigation    | Viewing the social links in the hero section                        | Válido   |
-| TC-004 | navigation    | Navigating to the Projects section                                  | Válido   |
-| TC-005 | contact       | Displaying the contact form                                         | Válido   |
-| TC-006 | contact       | Displaying the location                                             | Válido   |
-| TC-007 | contact       | Validating required fields on empty submission                      | Inválido |
-| TC-008 | contact       | Rejecting submission with empty name                                | Inválido |
-| TC-009 | contact       | Rejecting submission without email                                  | Inválido |
-| TC-010 | contact       | Rejecting submission with email missing "@"                         | Inválido |
-| TC-011 | contact       | Rejecting submission with email missing domain                      | Inválido |
-| TC-012 | contact       | Rejecting submission with email missing TLD                         | Inválido |
-| TC-013 | contact       | Rejecting submission with email containing space                    | Inválido |
-| TC-014 | contact       | Rejecting submission with empty message                             | Inválido |
-| TC-015 | projects      | Listing the expected projects                                       | Válido   |
-| TC-016 | projects      | Each project card displays an image                                 | Válido   |
-| TC-017 | projects      | Accessing more projects on Github                                   | Válido   |
-| TC-018 | projects      | Displaying a project without a repository link                      | Válido   |
-| TC-019 | likes         | Viewing the initial like state                                      | Válido   |
-| TC-020 | likes         | Liking the page                                                     | Válido   |
-| TC-021 | likes         | Unliking the page¹                                                  | Inválido |
-| TC-022 | navigation    | Not showing a non-existent menu item "Blog"                         | Válido   |
-| TC-023 | navigation    | Not showing a non-existent menu item "Shop"                         | Válido   |
-| TC-024 | navigation    | Social links should not point to wrong domains                      | Válido   |
-| TC-025 | contact       | Not showing success message when form is submitted empty            | Inválido |
-| TC-026 | contact       | Rejecting submission with whitespace-only name                      | Inválido |
-| TC-027 | contact       | Rejecting submission with whitespace-only message                   | Inválido |
-| TC-028 | responsiveness| Hero section is visible on mobile viewport                          | Válido   |
-| TC-029 | responsiveness| Hero section is visible on tablet viewport                          | Válido   |
-| TC-030 | responsiveness| Contact form is usable on mobile viewport                           | Válido   |
-| TC-031 | responsiveness| Projects section is visible on mobile viewport                      | Válido   |
-| TC-032 | responsiveness| Navigation is accessible on mobile                                  | Válido   |
-| TC-033 | responsiveness| Like button is visible on mobile viewport                           | Válido   |
+| ID     | Feature        | Cenário                                                  | Tipo     |
+| ------ | -------------- | -------------------------------------------------------- | -------- |
+| TC-001 | navigation     | Viewing the main heading                                 | Válido   |
+| TC-002 | navigation     | Viewing the menu links                                   | Válido   |
+| TC-003 | navigation     | Viewing the social links in the hero section             | Válido   |
+| TC-004 | navigation     | Navigating to the Projects section                       | Válido   |
+| TC-005 | contact        | Displaying the contact form                              | Válido   |
+| TC-006 | contact        | Displaying the location                                  | Válido   |
+| TC-007 | contact        | Validating required fields on empty submission           | Inválido |
+| TC-008 | contact        | Rejecting submission with empty name                     | Inválido |
+| TC-009 | contact        | Rejecting submission without email                       | Inválido |
+| TC-010 | contact        | Rejecting submission with email missing "@"              | Inválido |
+| TC-011 | contact        | Rejecting submission with email missing domain           | Inválido |
+| TC-012 | contact        | Rejecting submission with email missing TLD              | Inválido |
+| TC-013 | contact        | Rejecting submission with empty message                  | Inválido |
+| TC-014 | projects       | Listing the expected projects                            | Válido   |
+| TC-015 | projects       | Each project card displays an image                      | Válido   |
+| TC-016 | projects       | Accessing more projects on Github                        | Válido   |
+| TC-017 | projects       | Displaying a project without a repository link           | Válido   |
+| TC-018 | likes          | Viewing the initial like state                           | Válido   |
+| TC-019 | likes          | Liking the page                                          | Válido   |
+| TC-020 | likes          | Unliking the page¹                                       | Inválido |
+| TC-021 | navigation     | Not showing a non-existent menu item "Blog"              | Válido   |
+| TC-022 | navigation     | Not showing a non-existent menu item "Shop"              | Válido   |
+| TC-023 | navigation     | Social links should not point to wrong domains           | Válido   |
+| TC-024 | contact        | Not showing success message when form is submitted empty | Inválido |
+| TC-025 | contact        | Rejecting submission with whitespace-only name           | Inválido |
+| TC-026 | contact        | Rejecting submission with whitespace-only message        | Inválido |
+| TC-027 | responsiveness | Hero section is visible on mobile viewport               | Válido   |
+| TC-028 | responsiveness | Hero section is visible on tablet viewport               | Válido   |
+| TC-029 | responsiveness | Contact form is usable on mobile viewport                | Válido   |
+| TC-030 | responsiveness | Projects section is visible on mobile viewport           | Válido   |
+| TC-031 | responsiveness | Navigation is accessible on mobile                       | Válido   |
+| TC-032 | responsiveness | Like button is visible on mobile viewport                | Válido   |
 
-**Total:** 33 casos — 21 válidos / 12 inválidos
+**Total:** 32 casos — 21 válidos / 11 inválidos
 
 ¹ Cenário de falha esperada e documentada: defeito de produto no botão de like, que não implementa a ação de "descurtir". Ver seção de Riscos e Limitações no Plano de Testes.
 

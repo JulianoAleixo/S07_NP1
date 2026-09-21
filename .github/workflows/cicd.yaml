@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cypress-report-${{ matrix.browser }}
-          path: cypress/reports/html
+          path: cypress/reports
           retention-days: 15
 
       - name: Upload screenshots (failures)

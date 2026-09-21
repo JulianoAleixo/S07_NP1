@@ -122,7 +122,7 @@ Estes testes geram tráfego real contra o domínio de produção (`julianoaleixo
 
 - **Suíte de Testes:** Cypress (E2E) + Cucumber (BDD/Gherkin)
 - **Dados de Teste:** Fixtures JSON (`cypress/fixtures/`), separadas do código dos testes
-- **Relatórios Visuais:** <!-- TODO -->
+- **Relatórios Visuais:** Cypress Mochawesome Reporter
 
 ---
 
@@ -135,6 +135,14 @@ Estes testes geram tráfego real contra o domínio de produção (`julianoaleixo
 │   package.json           # Dependências e scripts de execução
 │   README.md
 │   tsconfig.json          # Configuração do TypeScript usada pelos steps e Page Objects
+│
+├───.github
+│   └───workflows
+│           cicd.yaml      # Arquivo de workflow da pipeline do github actions
+│
+├───Performance            # Scripts de performance 'k6'
+│   ├───config
+│   └───scripts
 │
 └───cypress
     ├───e2e                # Testes organizados por funcionalidade (feature + steps)
@@ -204,10 +212,13 @@ Estes testes geram tráfego real contra o domínio de produção (`julianoaleixo
 
 Ao longo do desenvolvimento do projeto, foi utilizado o uso de IA para pesquisa e guias em itens específicos, incluindo:
 
+- Guia para montar a arquitetura correta de BDD com Cypress e Gherkin no início do desenvolvimento.
 - Revisão de sintaxe Gherkin e discussão de particionamento de equivalência/análise de valor limite para os cenários negativos do formulário de contato.
 - Implementação dos steps, Page Object e fixtures em TypeScript, seguindo o padrão do projeto.
 - Investigação de comportamentos inesperados do navegador (validação de e-mail via HTML5, filtragem de espaço em `input[type=email]`), levando à documentação de uma limitação real de validação do produto.
 - Configuração e depuração do reporter de execução (Cypress + Cucumber via `cypress-mochawesome-reporter`).
 - Criação e organização da suíte de testes de performance (k6), incluindo os testes de carga, estresse e pico, e a investigação do bloqueio de tráfego (HTTP 403) identificado sob alta concorrência.
+- Validação do escopo do projeto se a suíte atende todos os requisitos solicitados.
+- Troubleshootings ao longo do desenvolvimento.
 
-Toda decisão em torno do código, dos critérios de aceite e do escopo final de cada cenário foi tomada pelo grupo. Todo o resumo de histórico de prompts pode ser acessado no arquivo `PROMPTS.md`.
+Toda decisão em torno do código, dos critérios de aceite e do escopo final de cada cenário foi tomada pelo grupo.

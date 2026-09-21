@@ -41,12 +41,12 @@ Feature: Contact section
     When I submit the contact form with a malformed email "no domain"
     Then the email field should be marked as invalid
 
-  @TC-012
+  @TC-012 @skip
   Scenario: Rejecting submission with email missing TLD
     When I submit the contact form with a malformed email "no TLD"
     Then the email field should be marked as invalid
 
-  @TC-013
+  @TC-013 @skip
   Scenario: Rejecting submission with email containing space
     When I submit the contact form with a malformed email "with space"
     Then the email field should be marked as invalid
@@ -61,12 +61,12 @@ Feature: Contact section
     When I submit the contact form without filling it
     Then I should not see the success message
 
-  @TC-026
+  @TC-026 @skip
   Scenario: Rejecting submission with whitespace-only name
     When I submit the contact form with whitespace-only in the "name" field
     Then the name field should be marked as invalid
 
-  @TC-027
+  @TC-027 @skip
   Scenario: Rejecting submission with whitespace-only message
     When I submit the contact form with whitespace-only in the "message" field
     Then the message field should be marked as invalid

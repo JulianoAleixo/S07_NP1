@@ -18,7 +18,7 @@ Then("I should see the {string} menu link", (label: string) => {
 });
 
 Then("I should not see a menu link labeled {string}", (label: string) => {
-    cy.get("nav").within(() => {
+    cy.get("nav").first().within(() => {
         cy.contains("a", label).should("not.exist");
     });
 });
